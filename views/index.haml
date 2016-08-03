@@ -1,1 +1,7 @@
-%p A simple blog using Sinatra and Haml.
+#posts
+- @posts.each do |post|
+  .post
+    %a{:href => "/post/#{post[:id]}"}
+      %h2=  post[:title]
+    %time=  post[:timestamp]
+    %p=     post[:body]
