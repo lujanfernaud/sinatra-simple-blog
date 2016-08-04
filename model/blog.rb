@@ -21,7 +21,8 @@ class Blog
   end
 
   def new_post(title, body)
-    @db.execute("INSERT INTO posts (title, body) VALUES (#{title}, #{body})")
+    @db.execute("INSERT INTO posts (title, body) VALUES ('#{title}', '#{body}')")
+    @db.last_insert_row_id
   end
 
   def post(id)
