@@ -17,7 +17,7 @@ class Blog
   end
 
   def posts
-    self.post_array_to_hash(@db.execute("SELECT * FROM posts"))
+    self.post_array_to_hash(@db.execute("SELECT * FROM posts ORDER BY timestamp DESC"))
   end
 
   def new_post(title, body)
