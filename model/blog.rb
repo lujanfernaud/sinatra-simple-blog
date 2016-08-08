@@ -25,6 +25,10 @@ class Blog
     @db.last_insert_row_id
   end
 
+  def update_post(id, title, body)
+    @db.execute("UPDATE posts SET title = '#{title}', body = '#{body}' WHERE id = #{id}")
+  end
+
   def post(id)
     self.post_array_to_hash(@db.execute("SELECT * FROM posts WHERE id = #{id}"))[0]
   end
