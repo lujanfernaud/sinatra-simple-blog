@@ -1,14 +1,17 @@
 !!!
 %html
   %head
-    %meta(charset="utf-8")
+    %link{:href => "/normalize.css", :rel => "stylesheet", :type => "text/css"}
+    %link{:href => "/style.css", :rel => "stylesheet", :type => "text/css"}
     %title Simple Blog in Sinatra
   %body
-    %header
-      %a{:href => "/"}
-        %h1 Simple Blog
+    #wrapper
+      %header
+        %a{:href => "/"}
+          %h1 Simple Blog
+      
+      #main
+        = yield
 
-    = yield
-
-    %footer
-      %small Footer
+      %footer
+        %small Footer

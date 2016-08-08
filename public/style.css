@@ -1,0 +1,77 @@
+#wrapper {
+  width: 900px;
+  margin: 0 auto;
+}
+
+header {
+  width: 100%;
+  margin: 80px 0 100px 0;
+  text-align: center;
+}
+
+#main {
+  width: 100%;
+}
+
+#posts {
+  margin-bottom: 30px;
+}
+
+#post-delete {
+  box-sizing: border-box;
+  width: 900px;
+  height: 100%;
+  padding: 12px 15px 12px 15px;
+  border-width: 10px;
+  border-color: black;
+  background-color: hsla(0, 0%, 0%, 0.03);
+}
+
+#post-delete h2 {
+  margin-top: 0;
+}
+
+#post-delete p {
+  margin-bottom: 0;
+}
+
+h1 {
+  font-size: 36px;
+}
+
+time {
+  color: hsla(0, 0%, 0%, 0.8);
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+input, textarea {
+  box-sizing: border-box;
+  width: 900px;
+}
+
+input#title {
+  margin-bottom: 22px;
+}
+
+input#submit {
+  margin-top: 25px;
+}
+
+textarea {
+  height: 300px;
+}
+
+footer {
+  width: 100%;
+  margin: 80px 0 60px 0;
+  text-align: center;
+}
