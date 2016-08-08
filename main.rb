@@ -72,3 +72,21 @@ post '/post/:id/edit' do
   db.update_post(params[:id], params[:title], params[:body])
   redirect "/post/#{params[:id]}"
 end
+
+get '/post/:id/delete' do
+  if !session[:loggedin]
+    redirect '/'
+  end
+  
+  @post = db.post(params[:id])
+  haml :blog_post_delete
+end
+
+post '/post/:id/delete' do
+  if !session[:loggedin]
+    redirect '/'
+  end
+  
+  db.delete_post(params[:id])
+  redirect '/'
+end

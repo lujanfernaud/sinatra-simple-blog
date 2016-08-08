@@ -32,4 +32,8 @@ class Blog
   def post(id)
     self.post_array_to_hash(@db.execute("SELECT * FROM posts WHERE id = #{id}"))[0]
   end
+
+  def delete_post(id)
+    @db.execute("DELETE FROM posts WHERE id = #{id}")
+  end
 end
