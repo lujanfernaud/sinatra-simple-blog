@@ -13,6 +13,12 @@ header {
   width: 100%;
 }
 
+#new-post {
+  width: 100%;
+  margin-bottom: 90px;
+  text-align: center;
+}
+
 #posts {
   margin-bottom: 30px;
 }
