@@ -7,6 +7,12 @@ configure do
   set :session_secret, '1234'
 end
 
+helpers do
+  def edit_url
+    "<a href='/post/#{params[:id]}/edit'>edit</a>"
+  end
+end
+
 db = Blog.new
 
 get '/' do 
