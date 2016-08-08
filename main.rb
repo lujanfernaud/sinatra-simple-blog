@@ -8,6 +8,10 @@ configure do
 end
 
 helpers do
+  def admin?
+    session[:loggedin]
+  end
+
   def edit_url
     "<a href='/post/#{params[:id]}/edit'>Edit</a>"
   end
@@ -20,7 +24,7 @@ end
 # Locks access to paths in array unless the user is logged in.
 ['/post', '/post/:id/edit', '/post/:id/delete'].each do |path|
   before path do
-    if !session[:loggedin]
+    if !admin?
       redirect '/'
     end
   end
