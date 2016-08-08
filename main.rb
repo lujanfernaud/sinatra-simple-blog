@@ -19,26 +19,31 @@ end
 
 db = Blog.new
 
+# Index (quite obvious).
 get '/' do 
   @posts = db.posts
   haml :index
 end
 
+# Show a particular post.
 get '/post/:id' do
   @post = db.post(params[:id])
   haml :blog_post
 end
 
+# Extremely simple and not secure login.
 get '/login' do
   session[:loggedin] = true
   redirect '/'
 end
 
+# Logout.
 get '/logout' do
   session[:loggedin] = false
   redirect '/'
 end
 
+# Show the form to create a new post.
 get '/post' do
   if !session[:loggedin]
     redirect '/'
@@ -47,6 +52,8 @@ get '/post' do
   haml :blog_form
 end
 
+# Store the information of the new post into the database
+# and redirect to the post.
 post '/post' do
   if !session[:loggedin]
     redirect '/'
@@ -56,6 +63,7 @@ post '/post' do
   redirect "/post/#{id}"
 end
 
+# Edit a post.
 get '/post/:id/edit' do
   if !session[:loggedin]
     redirect '/'
@@ -68,6 +76,8 @@ get '/post/:id/edit' do
   haml :blog_form_edit
 end
 
+# Send the new information of the edited post to the database
+# and redirect to the post.
 post '/post/:id/edit' do
   if !session[:loggedin]
     redirect '/'
@@ -77,6 +87,8 @@ post '/post/:id/edit' do
   redirect "/post/#{params[:id]}"
 end
 
+# Shows a preview of the post to delete, 
+# and asks for confirmation before deleting it.
 get '/post/:id/delete' do
   if !session[:loggedin]
     redirect '/'
@@ -86,6 +98,7 @@ get '/post/:id/delete' do
   haml :blog_post_delete
 end
 
+# Deletes the post from the database and redirects to the index.
 post '/post/:id/delete' do
   if !session[:loggedin]
     redirect '/'
