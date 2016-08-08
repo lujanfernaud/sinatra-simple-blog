@@ -9,7 +9,11 @@ end
 
 helpers do
   def edit_url
-    "<a href='/post/#{params[:id]}/edit'>edit</a>"
+    "<a href='/post/#{params[:id]}/edit'>Edit</a>"
+  end
+
+  def delete_url
+    "<a href='/post/#{params[:id]}/delete'>Delete</a>"
   end
 end
 
