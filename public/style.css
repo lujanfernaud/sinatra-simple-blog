@@ -1,12 +1,20 @@
+body {
+  font-size: 1.2em;
+}
+
 #wrapper {
-  width: 900px;
+  width: 768px;
   margin: 0 auto;
 }
 
 header {
   width: 100%;
-  margin: 80px 0 100px 0;
+  margin: 90px 0 90px 0;
   text-align: center;
+}
+
+header a {
+  text-decoration: none;
 }
 
 #main {
@@ -25,7 +33,7 @@ header {
 
 #post-delete {
   box-sizing: border-box;
-  width: 900px;
+  width: 768px;
   height: 100%;
   padding: 12px 15px 12px 15px;
   border-width: 10px;
@@ -42,7 +50,11 @@ header {
 }
 
 h1 {
-  font-size: 36px;
+  font-size: 2.5em;
+}
+
+h2 {
+  font-size: 1.8em;
 }
 
 time {
@@ -50,8 +62,13 @@ time {
 }
 
 a {
-  text-decoration: none;
+  text-decoration: underline;
+  text-decoration-style: dashed;
   color: black;
+}
+
+#posts a {
+  text-decoration: none;
 }
 
 label {
@@ -61,7 +78,7 @@ label {
 
 input, textarea {
   box-sizing: border-box;
-  width: 900px;
+  width: 768px;
 }
 
 input#title {
