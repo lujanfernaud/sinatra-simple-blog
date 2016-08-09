@@ -9,7 +9,7 @@ body {
 
 header {
   width: 100%;
-  margin: 90px 0 90px 0;
+  margin: 93px 0 93px 0;
   text-align: center;
 }
 
@@ -23,15 +23,15 @@ header a {
 
 #new-post {
   width: 100%;
-  margin-bottom: 90px;
+  margin-bottom: 93px;
   text-align: center;
 }
 
-#posts {
-  margin-bottom: 30px;
+#post-index {
+  margin-bottom: 62px;
 }
 
-#posts a {
+#post-index a {
   text-decoration: none;
 }
 
