@@ -31,6 +31,10 @@ header a {
   margin-bottom: 30px;
 }
 
+#posts a {
+  text-decoration: none;
+}
+
 #post-delete {
   box-sizing: border-box;
   width: 768px;
@@ -65,10 +69,6 @@ a {
   text-decoration: underline;
   text-decoration-style: dashed;
   color: black;
-}
-
-#posts a {
-  text-decoration: none;
 }
 
 label {
