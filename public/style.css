@@ -35,6 +35,12 @@ header a {
   text-decoration: none;
 }
 
+#post-index p, #post p {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 1.2em;
+  line-height: 1.6;
+}
+
 #post-delete {
   box-sizing: border-box;
   width: 768px;
