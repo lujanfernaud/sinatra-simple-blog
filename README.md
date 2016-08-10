@@ -2,4 +2,4 @@
 
 A simple blog using Sinatra, SQLite and Haml.
 
-Thanks to [Michael Yong](https://github.com/ymichael) for [this tutorial](https://www.youtube.com/watch?v=TVEE3CVn7b0).
+I started following [this tutorial](https://www.youtube.com/watch?v=TVEE3CVn7b0) by [Michael Yong](https://github.com/ymichael). Then added more features.
