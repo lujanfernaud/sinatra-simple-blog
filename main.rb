@@ -2,14 +2,16 @@ require 'sinatra'
 require 'haml'
 require './model/blog.rb'
 
-configure do
-  enable :sessions
-  set :session_secret, '1234'
-end
-
 helpers do
+  def protected!
+    return if admin?
+    headers['WWW-Authenticate'] = 'Basic realm="Restricted Area"'
+    halt 401, "Not authorized."
+  end
+
   def admin?
-    session[:loggedin]
+    @auth ||= Rack::Auth::Basic::Request.new(request.env)
+    @auth.provided? and @auth.basic? and @auth.credentials and @auth.credentials == ['admin', 'admin']
   end
 
   def edit_url
@@ -22,11 +24,9 @@ helpers do
 end
 
 # Locks access to paths in array unless the user is logged in.
-['/post', '/post/:id/edit', '/post/:id/delete'].each do |path|
+['/login', '/post', '/post/:id/edit', '/post/:id/delete'].each do |path|
   before path do
-    if !admin?
-      redirect '/'
-    end
+    protected!
   end
 end
 
@@ -39,22 +39,15 @@ get '/' do
   haml :index
 end
 
+# Just a way to trigger the login.
+get '/login' do
+  redirect '/'
+end
+
 # Show a particular post.
 get '/post/:id' do
   @post = db.post(params[:id])
   haml :blog_post
-end
-
-# Extremely simple and not secure login.
-get '/login' do
-  session[:loggedin] = true
-  redirect '/'
-end
-
-# Logout.
-get '/logout' do
-  session[:loggedin] = false
-  redirect '/'
 end
 
 # Show the form to create a new post.
